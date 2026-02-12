@@ -13,4 +13,4 @@ class Tratamiento(Base):
     precio_alto: Mapped[Optional[float]] = mapped_column(Numeric(10, 2), nullable=True)
 
 
-    diagnostic: Mapped[List["Diagnostico"]] = relationship("Diagnostico", back_populates="tratamiento")
+    diagnosticos: Mapped[List["Diagnostico"]] = relationship("Diagnostico", back_populates="tratamiento")
