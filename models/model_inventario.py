@@ -10,6 +10,7 @@ class Inventario(Base):
     nombre_insumo: Mapped[str] = mapped_column(String(100), nullable=False)
     cantidad: Mapped[int] = mapped_column(Integer, nullable=False)
     descripcion: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    marca: Mapped[str] = mapped_column(String(50), nullable=False)
 
 
     compras: Mapped[List["Compras"]] = relationship("Compras", back_populates="inventario")

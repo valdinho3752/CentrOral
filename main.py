@@ -17,7 +17,8 @@ from Routes import (
     routes_compras,
     routes_comisiones,
     routes_depositos,
-    routes_deposito_diagnostico
+    routes_deposito_diagnostico,
+    routes_operaciones
 )
 
 app = FastAPI(title="CentrOral API", version="1.0.0")
@@ -47,6 +48,9 @@ app.include_router(routes_compras.router, prefix="/api/v1/compras", tags=["Compr
 app.include_router(routes_comisiones.router, prefix="/api/v1/comisiones", tags=["Comisiones"])
 app.include_router(routes_depositos.router, prefix="/api/v1/depositos", tags=["Depositos"])
 app.include_router(routes_deposito_diagnostico.router, prefix="/api/v1/deposito_diagnostico", tags=["DepositoDiagnostico"])
+
+# Batch 4
+app.include_router(routes_operaciones.router, prefix="/api/v1/operaciones", tags=["Operaciones"])
 
 @app.get("/")
 async def root():

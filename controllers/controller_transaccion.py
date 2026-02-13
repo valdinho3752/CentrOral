@@ -17,6 +17,15 @@ class TransaccionController:
             result = await session.execute(select(Transaccion).where(Transaccion.id == transaccion_id))
             return result.scalar_one_or_none()
 
+    async def get_transacciones_by_cierre_caja(self, cierre_caja_id: int):
+        async with self.session_factory as session:
+            result = await session.execute(select(Transaccion).where(Transaccion.cierre_caja_id == cierre_caja_id))
+            return result.scalars().all()
+    async def get_transaccionID_by_datetime(self, fecha_hora: datetime):
+        async with self.session_factory as session:
+            result = await session.execute(select(Transaccion.id).where(Transaccion.fecha_hora == fecha_hora))
+            return result.scalar_one_or_none()
+
     async def create_transaccion(self, transaccion: TransaccionCreate):
         async with self.session_factory as session:
             new_transaccion = Transaccion(

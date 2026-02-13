@@ -22,7 +22,8 @@ class InventarioController:
             new_inventario = Inventario(
                 nombre_insumo=inventario.nombre_insumo,
                 cantidad=inventario.cantidad,
-                descripcion=inventario.descripcion
+                descripcion=inventario.descripcion,
+                marca=inventario.marca
             )
             session.add(new_inventario)
             await session.commit()

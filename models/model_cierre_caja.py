@@ -9,11 +9,11 @@ class CierreCaja(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     fecha_inicio: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    fecha_cierre: Mapped[datetime] = mapped_column(DateTime, nullable=False)
-    total_ingresos: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
-    total_egresos: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
-    total_diario: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
-    total_acumulado: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
+    fecha_cierre: Mapped[datetime] = mapped_column(DateTime, nullable=True)
+    total_ingresos: Mapped[float] = mapped_column(Numeric(10, 2), nullable=True)
+    total_egresos: Mapped[float] = mapped_column(Numeric(10, 2), nullable=True)
+    total_diario: Mapped[float] = mapped_column(Numeric(10, 2), nullable=True)
+    total_acumulado: Mapped[float] = mapped_column(Numeric(10, 2), nullable=True)
     
     usuario_id: Mapped[int] = mapped_column(ForeignKey("usuario.id"), nullable=False)
 
